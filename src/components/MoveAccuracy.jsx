@@ -1,0 +1,5 @@
+function MoveAccuracy({ accuracy }) {
+  return <section className="accuracy-section" id="accuracy"><div><div className="section-label">Practice feedback</div><h2 className="section-title">Move Accuracy</h2><p className="section-description">A quick read on your latest decision. Engine-powered analysis can plug into this same panel later.</p></div><div className="accuracy-panel"><div><span className="metric-label">Last move</span><strong className="metric-value">{accuracy.lastMove}</strong></div><div><span className="metric-label">Evaluation</span><strong className="metric-value">{accuracy.evaluation}</strong></div><div className="accuracy-bar" aria-label={`${accuracy.score}% accuracy`}><div className="accuracy-fill" style={{ width: `${accuracy.score}%` }} /></div><p className="suggestion"><span className="metric-label">Suggestion</span>{accuracy.suggestion}</p></div></section>
+}
+
+export default MoveAccuracy
