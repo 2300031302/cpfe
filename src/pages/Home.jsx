@@ -41,7 +41,7 @@ function Home() {
       saveSession({ fen: game.fen(), moves, accuracy, status: illegalStatus })
       return false
     }
-    const nextMoves = nextGame.history()
+    const nextMoves = [...moves, move.san]
     const nextAccuracy = evaluateMove(move)
     const nextStatus = { message: `Legal move: ${move.san} · ${nextGame.isGameOver() ? 'Game over' : `${nextGame.turn() === 'w' ? 'White' : 'Black'} to move`}`, tone: 'legal' }
     setGame(nextGame); setPosition(nextGame.fen()); setMoves(nextMoves); setAccuracy(nextAccuracy); setStatus(nextStatus)
