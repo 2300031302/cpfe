@@ -162,7 +162,19 @@ function Home() {
   }
   function navigateTo(page) {
     setActivePage(page)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    if (page === 'news') {
+      window.setTimeout(() => {
+        const newsSection = document.getElementById('news')
+        if (newsSection) {
+          window.scrollTo({
+            top: newsSection.getBoundingClientRect().top + window.scrollY,
+            behavior: 'smooth',
+          })
+        }
+      }, 0)
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
   }
   const pageTitles = {
     rules: { eyebrow: 'A quick field guide', title: 'Know your pieces.', copy: 'Every piece has its own rhythm. Learn how they move, then bring them together.' },
